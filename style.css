@@ -84,7 +84,7 @@ h1,
     display: inline-block;
 
     background-image: repeating-radial-gradient(#000000 20%,#3443BF 10%,#8143FD 10%,#8478DF 20%,#7294FF 20%,#0FA6EF 50px,#3443BF ,#000000);
-    margin: 35px 20px 10px 20px;
+    margin: 30px 20px 10px 20px;
     padding: 40px 20px;
 }
 .Btn-Link:hover{
