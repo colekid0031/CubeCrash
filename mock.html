@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CubeCrash — Mockup Reference</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0A0A14;
+    --panel:#14141F;
+    --panel-line: rgba(168,85,247,0.18);
+    --violet:#A855F7;
+    --cyan:#22D3EE;
+    --text:#F4F4FF;
+    --muted:#7A7A96;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  body{
+    background:var(--void);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    overflow-x:hidden;
+  }
+
+  /* subtle floating grid dots, like the menu backgrounds */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image: radial-gradient(circle, rgba(168,85,247,0.10) 1px, transparent 1px);
+    background-size: 42px 42px;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  nav{
+    position:relative; z-index:2;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 28px 6vw;
+  }
+
+  .logo{
+    font-family:'Chakra Petch', sans-serif;
+    font-weight:700;
+    font-size:1.15rem;
+    letter-spacing:0.04em;
+  }
+  .logo span{ color:var(--violet); }
+
+  .nav-links{
+    display:flex; gap:32px;
+    font-size:0.85rem;
+    color:var(--muted);
+  }
+  .nav-links a{ color:var(--muted); text-decoration:none; transition:color .2s; }
+  .nav-links a:hover{ color:var(--text); }
+
+  /* HERO */
+  .hero{
+    position:relative; z-index:2;
+    min-height:78vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding: 40px 6vw 20px;
+  }
+
+  .cube-wrap{
+    perspective: 900px;
+    margin-bottom: 44px;
+  }
+  .cube{
+    width:96px; height:96px;
+    position:relative;
+    transform-style:preserve-3d;
+    animation: spin 9s linear infinite;
+  }
+  .cube .face{
+    position:absolute; inset:0;
+    background: linear-gradient(160deg, #1c1c2c, #0d0d18);
+    border:1px solid var(--panel-line);
+    box-shadow: 0 0 24px rgba(34,211,238,0.10) inset;
+  }
+  .cube .front{ transform: translateZ(48px); }
+  .cube .back{ transform: rotateY(180deg) translateZ(48px); }
+  .cube .right{ transform: rotateY(90deg) translateZ(48px); }
+  .cube .left{ transform: rotateY(-90deg) translateZ(48px); }
+  .cube .top{ transform: rotateX(90deg) translateZ(48px); }
+  .cube .bottom{ transform: rotateX(-90deg) translateZ(48px); }
+
+  @keyframes spin{
+    from{ transform: rotateX(-18deg) rotateY(0deg); }
+    to{ transform: rotateX(-18deg) rotateY(360deg); }
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    color:var(--cyan);
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+
+  h1{
+    font-family:'Chakra Petch', sans-serif;
+    font-weight:700;
+    font-size: clamp(2.6rem, 7vw, 5.2rem);
+    letter-spacing:0.01em;
+    line-height:1;
+    background: linear-gradient(180deg, #ffffff, #b9b9d6);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .tagline{
+    margin-top:22px;
+    max-width:440px;
+    color:var(--muted);
+    font-size:0.98rem;
+    line-height:1.6;
+  }
+
+  .cta{
+    margin-top:38px;
+    display:inline-flex; align-items:center; gap:10px;
+    padding: 15px 38px;
+    background: var(--violet);
+    color:#0A0A14;
+    font-family:'Chakra Petch', sans-serif;
+    font-weight:700;
+    letter-spacing:0.04em;
+    font-size:0.95rem;
+    text-decoration:none;
+    border-radius:6px;
+    box-shadow: 0 0 0 1px rgba(168,85,247,0.5), 0 0 30px rgba(168,85,247,0.35);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .cta:hover{ transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(168,85,247,0.7), 0 0 44px rgba(168,85,247,0.5); }
+
+  /* STAT STRIP — echoes the Stats page numeric readouts */
+  .stat-strip{
+    position:relative; z-index:2;
+    display:flex; justify-content:center;
+    gap: clamp(24px, 6vw, 90px);
+    padding: 34px 6vw;
+    border-top:1px solid var(--panel-line);
+    border-bottom:1px solid var(--panel-line);
+    flex-wrap:wrap;
+  }
+  .stat{ text-align:center; }
+  .stat .num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:1.5rem;
+    font-weight:500;
+    color:var(--text);
+  }
+  .stat .num.c{ color:var(--cyan); }
+  .stat .num.v{ color:var(--violet); }
+  .stat .label{
+    margin-top:6px;
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  /* FEATURE ROW */
+  .features{
+    position:relative; z-index:2;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:1px;
+    background: var(--panel-line);
+    margin: 0 6vw;
+    border:1px solid var(--panel-line);
+  }
+  .feature{
+    background: var(--panel);
+    padding: 34px 20px;
+    text-align:center;
+  }
+  .feature .icon{
+    width:34px; height:34px;
+    margin:0 auto 16px;
+    border:1.5px solid var(--violet);
+    border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--violet);
+    font-size:0.9rem;
+  }
+  .feature h3{
+    font-family:'Chakra Petch', sans-serif;
+    font-size:0.9rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    margin-bottom:8px;
+  }
+  .feature p{
+    font-size:0.78rem;
+    color:var(--muted);
+    line-height:1.5;
+  }
+
+  footer{
+    position:relative; z-index:2;
+    text-align:center;
+    padding: 46px 6vw 40px;
+    color:var(--muted);
+    font-size:0.75rem;
+    letter-spacing:0.04em;
+  }
+
+  @media (max-width:680px){
+    .nav-links{ display:none; }
+    .features{ grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">CUBE<span>CRASH</span></div>
+    <div class="nav-links">
+      <a href="#">Shop</a>
+      <a href="#">Quests</a>
+      <a href="#">Achievements</a>
+      <a href="#">Stats</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="cube-wrap">
+      <div class="cube">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face right"></div>
+        <div class="face left"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+      </div>
+    </div>
+
+    <div class="eyebrow">Shift · Shatter · Survive</div>
+    <h1>CUBECRASH</h1>
+    <p class="tagline">Evolve your shape, stack your powers, and crash through
+      every level. A minimalist arena where every cube tells a story.</p>
+    <a href="#" class="cta">▶ Play Now</a>
+  </section>
+
+  <div class="stat-strip">
+    <div class="stat"><div class="num c">12,450</div><div class="label">Coins Earned</div></div>
+    <div class="stat"><div class="num v">1,245</div><div class="label">Kills Logged</div></div>
+    <div class="stat"><div class="num">23</div><div class="label">Bosses Defeated</div></div>
+    <div class="stat"><div class="num c">46%</div><div class="label">Achievements</div></div>
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <div class="icon">◆</div>
+      <h3>Shape</h3>
+      <p>Evolve your cube into new forms as you level up.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">⚡</div>
+      <h3>Powers</h3>
+      <p>Unlock elemental abilities and stack their effects.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">✦</div>
+      <h3>Quests</h3>
+      <p>Take on the shady dealer's board for rare rewards.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🛒</div>
+      <h3>Shop</h3>
+      <p>Gear up with shields, boosts, and elemental gear.</p>
+    </div>
+  </div>
+
+  <footer>© CUBECRASH — mockup reference, not a real page</footer>
+
+</body>
+</html>

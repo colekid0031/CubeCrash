@@ -1,0 +1,89 @@
+body{
+    box-sizing: border-box;
+    background-image: linear-gradient(to top ,#000000,#2040ff,#6070ff,#264cb3,#0a256a,#000000);
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+p{
+    
+    background-color: rgb(128, 52, 199);
+    
+}
+
+a{
+    color: #38cc71;
+    font-weight: bolder;
+}
+
+h1,
+.Heading{
+    
+    background-color: #453088;
+    color: rgb(83, 51, 154);
+    
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+} 
+/*Applies to all Headings in index.html*/
+.Heading{
+    background-image: radial-gradient(#32F7E7, #5561AF);
+    padding: 1px;
+    border: 3px solid rgb(37, 37, 169);
+    margin: 10px;
+
+}
+.Sub-Title{
+    /*Sub-Titles Apply to all sub-titles that display extra info */
+    text-align: center;
+    height: 100px;
+    width: 90%; max-width: 900px;
+
+
+    background-image: repeating-radial-gradient(#5A65F0 50%,#9733CD 90% ,#710FFF);
+    color: rgb(40, 11, 104);
+
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+    padding: 11px;
+    border: 3px solid rgb(37, 37, 169);
+    margin: 10px auto;
+}
+.Box{
+    height: 50%; max-height:fit-content;
+    width: 50%;max-width: fit-content;
+}
+.Cube-box{
+    height: 180px; max-height: 900px;
+    width: 220px; max-width: 900%;
+
+    background-color: black;
+    color: #2172FF;
+    font-weight: bold;
+
+    padding: 8px;
+    border: 3px solid #5431FA;
+    margin: -5px auto ;
+
+    font-style: italic;
+    font-size: large;
+}
+
+/*img Id's and size settings */
+
+#Logo{
+    width: 200px;
+    height: 200px;
+    border: 3px solid #400268;
+    margin: 5px;
+}
+/*Button links styles n Id's*/
+.Button-Link{
+    height: 100px;
+    width: 300px;
+
+    background-image: repeating-radial-gradient(#000000 20%,#3443BF 10%,#8143FD 10%,#8478DF 20%,#7294FF 20%,#0FA6EF 50px,#3443BF ,#000000);
+    margin-top: 70px;
+    margin-bottom: 60px;
+}
